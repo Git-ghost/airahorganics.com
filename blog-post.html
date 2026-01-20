@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikulli - Airah Organics</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/vars.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .blog-post-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .blog-post-hero-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4);
+        }
+
+        .blog-post-hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+            color: #fff;
+            max-width: 800px;
+        }
+
+        .blog-post-category {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .blog-post-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .blog-post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Article Content */
+        .blog-post-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .blog-post-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+        }
+
+        .share-section h4 {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .share-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .share-icons a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .share-icons a:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        /* Related Articles */
+        .related-section {
+            background: #fafafa;
+            padding: 4rem 0;
+        }
+
+        .related-section h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .related-card-content {
+            padding: 1rem;
+        }
+
+        .related-card-content h4 {
+            font-size: 1rem;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-card-content span {
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo"><img src="assets/images/whitelogo.jpeg"
+                    alt="Le jardin d'Airah Logo"><span>Le jardin d'Airah</span></a>
+            <nav class="main-nav">
+                <a href="index.html">KREU</a>
+                <a href="about.html">RRETH NESH</a>
+                <a href="shop.html">DYQANI</a>
+                <a href="blog.html" class="active">BLOG</a>
+                <a href="contact.html">KONTAKT</a>
+            </nav>
+
+            <div class="header-actions flex items-center gap-4">
+                <a href="cart.html" aria-label="Shporta">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-badge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="blog-post-hero" id="post-hero" style="margin-top: 80px;">
+        <!-- Filled by JS -->
+    </section>
+
+    <!-- Article Content -->
+    <article class="blog-post-content" id="post-content">
+        <!-- Filled by JS -->
+    </article>
+
+    <!-- Share -->
+    <div class="container">
+        <div class="share-section">
+            <h4>Shpërndajeni këtë artikull</h4>
+            <div class="share-icons">
+                <a href="#" id="share-facebook" target="_blank" aria-label="Share on Facebook"><i
+                        data-lucide="facebook"></i></a>
+                <a href="#" id="share-twitter" target="_blank" aria-label="Share on Twitter"><i
+                        data-lucide="twitter"></i></a>
+                <a href="#" id="share-instagram" target="_blank" aria-label="Share on Instagram"><i
+                        data-lucide="instagram"></i></a>
+                <a href="#" id="share-tiktok" target="_blank" aria-label="Share on TikTok"><i
+                        data-lucide="message-circle"></i></a>
+                <a href="#" id="share-linkedin" target="_blank" aria-label="Share on LinkedIn"><i
+                        data-lucide="linkedin"></i></a>
+                <a href="#" aria-label="Copy link" onclick="copyLink(); return false;"><i data-lucide="link"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related-section">
+        <div class="container">
+            <h3>Artikuj të Tjerë</h3>
+            <div class="related-grid" id="related-grid">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>LE JARDIN D'AIRAH</h3>
+                <p>Duke u kujdesur për të vegjlit tuaj me kujdesin më të pastër organik. Të sigurt, të butë dhe
+                    efektivë.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Lidhje të Shpejta</h4>
+                <ul>
+                    <li><a href="index.html">Kreu</a></li>
+                    <li><a href="about.html">Rreth Nesh</a></li>
+                    <li><a href="shop.html">Dyqani</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Na Vizitoni</h4>
+                <ul>
+                    <li>Kotoni Business Center</li>
+                    <li>Bllok, Tiranë</li>
+                    <li>Shqipëri</li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Na Ndiqni</h4>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="https://instagram.com/airah_organics" target="_blank"><i data-lucide="instagram"></i></a>
+                    <a href="https://facebook.com/LeJardinDAirah" target="_blank"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2026 Le jardin d'Airah. Të gjitha të drejtat e rezervuara.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/blog.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        lucide.createIcons();
+        const params = new URLSearchParams(window.location.search);
+        const postId = parseInt(params.get('id'));
+        const postHero = document.getElementById('post-hero');
+        const postContent = document.getElementById('post-content');
+        const relatedGrid = document.getElementById('related-grid');
+
+        // Format date
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('sq-AL', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Linku u kopjua!");
+        }
+
+        function renderPost() {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) {
+                postHero.innerHTML = `<div class="container" style="padding: 4rem; text-align: center;"><h1>Artikulli nuk u gjet</h1></div>`;
+                return;
+            }
+
+            const title = post.title;
+            const content = post.content;
+            const categoryLabel = post.categoryLabel;
+            const readTime = post.readTime;
+
+            // Set page title
+            document.title = title + ' - Airah Organics';
+
+            // Update Share Links
+            const url = encodeURIComponent(window.location.href);
+            const shareTitle = encodeURIComponent(title);
+            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${url}&text=${shareTitle}`;
+            document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+
+            // IG/TikTok are app-based, usually just copy link or open profile as fallback
+            document.getElementById('share-instagram').onclick = (e) => {
+                e.preventDefault();
+                copyLink();
+                setTimeout(() => window.open("https://instagram.com/airah_organics", "_blank"), 1000);
+            };
+            document.getElementById('share-tiktok').onclick = (e) => {
+                e.preventDefault();
+                copyLink();
+                // TikTok doesn't have a direct share URL for web posts to feed, fallback to profile/copy
+                alert("Linku u kopjua! Mund ta ndani në TikTok.");
+            };
+
+            // Render hero
+            postHero.innerHTML = `
+                <div class="blog-post-hero-image" style="background-image: url('${post.image}');"></div>
+                <div class="blog-post-hero-content container">
+                    <a href="blog.html" class="back-btn"><i data-lucide="arrow-left" style="width:16px;"></i> <span>Mbrapsht te Blogu</span></a>
+                    <span class="blog-post-category">${categoryLabel}</span>
+                    <h1>${title}</h1>
+                    <div class="blog-post-meta">
+                        <span><i data-lucide="calendar" style="width:16px;"></i> ${formatDate(post.date)}</span>
+                        <span><i data-lucide="clock" style="width:16px;"></i> ${readTime}</span>
+                    </div>
+                </div>
+            `;
+
+            // Render content
+            postContent.innerHTML = content;
+
+            // Render related (same category, exclude current)
+            relatedGrid.innerHTML = '';
+            const related = blogPosts.filter(p => p.category === post.category && p.id !== post.id).slice(0, 3);
+            related.forEach(r => {
+                const rTitle = r.title;
+                const rReadTime = r.readTime;
+
+                const card = document.createElement('div');
+                card.className = 'related-card';
+                card.onclick = () => window.location.href = `blog-post.html?id=${r.id}`;
+                card.innerHTML = `
+                    <img src="${r.image}" alt="${rTitle}">
+                    <div class="related-card-content">
+                        <h4>${rTitle}</h4>
+                        <span>${rReadTime}</span>
+                    </div>
+                `;
+                relatedGrid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+
+        // Initial render
+        renderPost();
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

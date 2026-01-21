@@ -1,7 +1,7 @@
 const blogPosts = [
     {
         id: 1,
-        title: "Si të Zgjidhnin Produkte Natyrale Sipas Tipit të Lëkurës",
+        title: "Si të Zgjidhni Produkte Natyrale Sipas Tipit të Lëkurës",
         excerpt: "Zgjedhja e produkteve të duhura për lëkurën është një hap thelbësor për ruajtjen e shëndetit dhe ekuilibrit të saj. Mësoni si t'i përshtatni produktet me nevojat tuaja.",
         content: `
             <p>Zgjedhja e produkteve të duhura për lëkurën është një hap thelbësor për ruajtjen e shëndetit dhe ekuilibrit të saj. Edhe produktet natyrale duhet të përshtaten me tipin e lëkurës për të dhënë rezultat.</p>

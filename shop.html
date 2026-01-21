@@ -83,10 +83,34 @@
         /* Category Tabs */
         .category-tabs {
             display: flex;
-            flex-wrap: wrap;
             gap: 0.5rem;
             justify-content: center;
             margin-top: 0.75rem;
+        }
+
+        /* Mobile: Horizontal scroll for categories */
+        @media (max-width: 768px) {
+            .category-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x proximity;
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* IE and Edge */
+            }
+
+            .category-tabs::-webkit-scrollbar {
+                display: none;
+                /* Chrome, Safari, Opera */
+            }
+
+            .category-tab {
+                flex-shrink: 0;
+                scroll-snap-align: start;
+            }
         }
 
         .category-tab {
@@ -152,7 +176,7 @@
             <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: #000000; margin-bottom: 0.25rem;">
                 Koleksioni Ynë</h1>
             <p style="color: #666; font-size: 1rem; max-width: 600px; margin: 0 auto;">
-                Kujdes i pastër dhe organik për të vegjlit tuaj.</p>
+                Kujdes i pastër dhe organik për ju</p>
         </div>
     </section>
 
@@ -203,8 +227,8 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <h3>LE JARDIN D'AIRAH</h3>
-                <p>Duke u kujdesur për të vegjlit tuaj me kujdesin më të pastër organik. Të sigurt, të butë dhe
-                    efektivë.</p>
+                <p>Kujdes i sigurt për lëkurën dhe flokët e të gjithë familjes, i bazuar në vajra bimorë dhe përbërës të
+                    përzgjedhur me kujdes.</p>
             </div>
             <div class="footer-links">
                 <h4>Lidhje të Shpejta</h4>

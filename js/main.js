@@ -273,6 +273,35 @@ function initGlobal() {
 
     // Initialize Mobile Menu
     initMobileMenu();
+
+    // Initialize Back Button
+    initBackButton();
+}
+
+function initBackButton() {
+    // Only add if not already present
+    if (document.querySelector('.floating-back-btn-container')) return;
+
+    // Don't show on index.html (home page)
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('\/');
+    if (isHomePage) return;
+
+    const container = document.createElement('div');
+    container.className = 'floating-back-btn-container';
+
+    const btn = document.createElement('button');
+    btn.className = 'floating-back-btn';
+    btn.setAttribute('aria-label', 'Shko mbrapa');
+    btn.innerHTML = '<i data-lucide="arrow-left"></i>';
+
+    btn.onclick = () => {
+        window.history.back();
+    };
+
+    container.appendChild(btn);
+    document.body.appendChild(container);
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function initMobileMenu() {

@@ -282,7 +282,7 @@ function initBackButton() {
     // Only add if not already present
     if (document.querySelector('.floating-back-btn-container')) return;
 
-    // Don't show on index.html (home page)
+    // Don't show on index.html
     const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('\/');
     if (isHomePage) return;
 

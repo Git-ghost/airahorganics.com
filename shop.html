@@ -41,11 +41,18 @@
         /* Sticky Shop Search Bar */
         .shop-search-wrapper {
             position: sticky;
-            top: 64px;
+            top: 112px;
             z-index: 50;
             background: var(--color-bg);
             padding: 0.75rem 0;
             border-bottom: 1px solid #eee;
+            transition: top 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .shop-search-wrapper {
+                top: 100px;
+            }
         }
 
         .shop-search-container {
@@ -156,6 +163,11 @@
             color: #666;
             grid-column: 1 / -1;
         }
+
+        /* Prevent Layout Collapse */
+        .product-grid {
+            min-height: 50vh;
+        }
     </style>
 </head>
 
@@ -201,12 +213,12 @@
                 <button aria-label="Search"><i data-lucide="search"></i></button>
             </div>
             <div class="category-tabs">
-                <button class="category-tab active" data-category="all">Të Gjitha</button>
-                <button class="category-tab" data-category="face">Kujdesi për Fytyrën</button>
-                <button class="category-tab" data-category="hair">Kujdesi për Flokët</button>
-                <button class="category-tab" data-category="kids">Për Fëmijë</button>
-                <button class="category-tab" data-category="wash">Larje & Pastrim</button>
-                <button class="category-tab" data-category="body">Kujdesi për Trupin</button>
+                <button type="button" class="category-tab active" data-category="all">Të Gjitha</button>
+                <button type="button" class="category-tab" data-category="face">Kujdesi për Fytyrën</button>
+                <button type="button" class="category-tab" data-category="hair">Kujdesi për Flokët</button>
+                <button type="button" class="category-tab" data-category="kids">Për Fëmijë</button>
+                <button type="button" class="category-tab" data-category="wash">Larje & Pastrim</button>
+                <button type="button" class="category-tab" data-category="body">Kujdesi për Trupin</button>
             </div>
         </div>
     </div>
@@ -301,7 +313,13 @@
                 const name = p.name.toLowerCase();
                 const matchCategory = currentCategory === 'all' || p.category === currentCategory;
                 const matchSearch = name.includes(currentSearch.toLowerCase());
-                return matchCategory && matchSearch;
+
+                // If search is active, show all matching products regardless of category
+                if (currentSearch.trim() !== '') {
+                    return matchSearch;
+                }
+
+                return matchCategory;
             });
 
             // Sort
@@ -369,10 +387,34 @@
         });
 
         categoryTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default button behavior
+
+                // Scroll to top of page
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
                 categoryTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 currentCategory = tab.dataset.category;
+
+                // Optional: clear search when picking a category? 
+                // User requirement: "When typing... regardless of category".
+                // Logic: If I pick a category, I probably want to see that category.
+                // The currentSearch variable persists unless cleared. 
+                // If I have search text "shampo", picking "Face" category won't show anything because renderProducts ignores category if search is present?
+                // Wait. My logic: `if (currentSearch) return matchSearch`.
+                // So if search is active, clicking Category tabs DOES NOTHING to the list visually.
+                // This might be confusing. 
+                // I should probably clear the search input if a category is explicitly clicked.
+
+                if (currentSearch !== '') {
+                    currentSearch = '';
+                    searchInput.value = '';
+                }
+
                 renderProducts();
             });
         });
@@ -429,5 +471,6 @@
         });
     </script>
 </body>
+
 
 </html>

@@ -820,15 +820,30 @@
 
 /* Fix for mobile text wrapping */
 @media (max-width: 768px) {
+    .toast-container {
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .toast {
-        width: max-content;
-        max-width: 90%;
-        white-space: nowrap;
-        padding: 0.8rem 1.2rem;
+        width: 100%;
+        white-space: normal;
+        padding: 1rem;
+        border-radius: 12px;
+        justify-content: center;
+        /* Center content inside the wide bar */
+    }
+
+    .toast-content {
+        width: 100%;
+        justify-content: center;
     }
 
     .toast-content span {
         font-size: 0.9rem;
+        text-align: center;
+        /* Center text if multiple lines */
     }
 }
 

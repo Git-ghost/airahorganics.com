@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/vars.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 
     <!-- Icons & SEO -->
     <link rel="icon" type="image/jpeg" href="assets/images/transparentlogo.png">
@@ -68,12 +69,12 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content animate-on-scroll slide-up">
                 <h1>Produkte bimore <br> artizanale <br> 100% <span class="accent-text">Natyrale</span>
                 </h1>
-                <p class="subtitle">Kujdes i sigurt për lëkurën dhe flokët e të gjithë familjes, i bazuar në vajra
+                <p class="subtitle animate-on-scroll slide-up delay-100">Kujdes i sigurt për lëkurën dhe flokët e të gjithë familjes, i bazuar në vajra
                     bimorë dhe përbërës të përzgjedhur me kujdes.</p>
-                <div class="hero-btns">
+                <div class="hero-btns animate-on-scroll slide-up delay-200">
                     <a href="shop.html" class="btn btn-primary">Shiko Koleksionin</a>
                 </div>
             </div>
@@ -81,7 +82,7 @@
     </section>
 
     <!-- Stats / Features Bar -->
-    <section class="features-bar">
+    <section class="features-bar animate-on-scroll slide-up delay-300">
         <div class="container flex justify-between">
             <div class="feature-item">
                 <div class="icon-circle"><i data-lucide="leaf"></i></div>
@@ -171,6 +172,7 @@
     <!-- Scripts -->
     <script src="js/products.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
     <script>
         lucide.createIcons();
 
@@ -180,7 +182,8 @@
             grid.innerHTML = '';
             products.slice(0, 4).forEach(product => {
                 const card = document.createElement('div');
-                card.className = 'product-card';
+                card.className = 'product-card animate-on-scroll slide-up';
+                card.style.transitionDelay = `${products.indexOf(product) * 100}ms`;
                 card.innerHTML = `
                     <div class="product-image">
                         <a href="product.html?id=${product.id}">

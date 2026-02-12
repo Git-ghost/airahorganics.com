@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/vars.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     <!-- Icons & SEO -->
     <link rel="icon" type="image/jpeg" href="assets/images/transparentlogo.png">
     <link rel="apple-touch-icon" href="assets/images/transparentlogo.png">
@@ -59,7 +60,7 @@
 
     <!-- Page Header / Mission -->
     <section class="page-header" style="background-color: var(--color-bg); padding: 4rem 0; text-align: center;">
-        <div class="container">
+        <div class="container animate-on-scroll slide-up">
             <h1 style="font-family: var(--font-heading); font-size: 3rem; color: #000000; margin-bottom: 0.5rem;">Rreth
                 Le jardin d'Airah</h1>
             <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
@@ -70,11 +71,12 @@
     <!-- Origin Story -->
     <section class="section-padding">
         <div class="container grid-2-col" style="align-items: center;">
-            <div class="about-image shine-effect" style="position: relative; overflow: hidden; border-radius: 20px;">
+            <div class="about-image shine-effect animate-on-scroll slide-right"
+                style="position: relative; overflow: hidden; border-radius: 20px;">
                 <img src="assets/images/rrethneshimage.jpeg" alt="Airah Organics Origin"
                     style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
             </div>
-            <div class="about-content" style="padding-left: 2rem;">
+            <div class="about-content animate-on-scroll slide-left" style="padding-left: 2rem;">
                 <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: #000000; margin-bottom: 1.5rem;">
                     Historia e Origjinës</h2>
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem; color: #000000; line-height: 1.8;">
@@ -94,7 +96,7 @@
         <div class="container">
             <div class="grid-2-col" style="gap: 5rem;">
                 <!-- Philosophy -->
-                <div>
+                <div class="animate-on-scroll slide-up delay-100">
                     <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Misioni Ynë</h3>
                     <div style="width: 60px; height: 3px; background: var(--color-primary); margin-bottom: 1.5rem;">
                     </div>
@@ -107,7 +109,7 @@
                     </p>
                 </div>
                 <!-- Promise -->
-                <div>
+                <div class="animate-on-scroll slide-up delay-200">
                     <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Angazhimi Ynë</h3>
                     <div style="width: 60px; height: 3px; background: var(--color-primary); margin-bottom: 1.5rem;">
                     </div>
@@ -127,7 +129,7 @@
             <h2 style="font-family: var(--font-heading); font-size: 2.5rem; color: #000000; margin-bottom: 3rem;">
                 Qëndrueshmëria dhe Etika</h2>
             <div class="flex justify-center" style="flex-wrap: wrap; gap: 2rem;">
-                <div class="feature-item" style="text-align: center;">
+                <div class="feature-item animate-on-scroll slide-up" style="text-align: center;">
                     <div class="icon-circle">
                         <!-- Paw Print Icon SVG (Universal Animal Symbol) -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -144,13 +146,13 @@
                     <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #000000;">Ne kurrë nuk testojmë te kafshët.
                     </p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item animate-on-scroll slide-up delay-100">
                     <div class="icon-circle"><i data-lucide="leaf"></i></div>
                     <h4 style="margin-top: 1rem; font-weight: 600; color: #000000;">Ekologjike</h4>
                     <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #000000;">Paketim dhe zgjedhje të
                         vëmendshme.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item animate-on-scroll slide-up delay-200">
                     <div class="icon-circle"><i data-lucide="droplets"></i></div>
                     <h4 style="margin-top: 1rem; font-weight: 600; color: #000000;">Sasi të Vogla</h4>
                     <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #000000;">Cilësi e punuar me dorë.</p>
@@ -198,6 +200,7 @@
     </footer>
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
     <script>
         lucide.createIcons();
     </script>

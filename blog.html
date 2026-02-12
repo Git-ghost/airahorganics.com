@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/vars.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 
     <!-- Icons & SEO -->
     <link rel="icon" type="image/jpeg" href="assets/images/transparentlogo.png">
@@ -327,7 +328,7 @@
     <!-- Blog Content -->
     <section class="section-padding" style="padding-top: 0;">
         <section class="page-header" style="background-color: var(--color-bg); padding: 4rem 0; text-align: center;">
-            <div class="container">
+            <div class="container animate-on-scroll slide-up">
                 <h1 style="font-family: var(--font-heading); font-size: 3rem; color: #000000; margin-bottom: 0.5rem;">
                     Revista Organike</h1>
                 <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
@@ -391,6 +392,7 @@
     <!-- Scripts -->
     <script src="js/blog.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
     <script>
         lucide.createIcons();
         let currentCategory = 'all';
@@ -454,7 +456,7 @@
                 const readTime = post.readTime;
 
                 const card = document.createElement('div');
-                card.className = 'blog-card';
+                card.className = 'blog-card animate-on-scroll slide-up';
                 card.onclick = () => window.location.href = `blog-post.html?id=${post.id}`;
                 card.innerHTML = `
                     <div class="blog-card-image">
@@ -474,6 +476,7 @@
             });
 
             lucide.createIcons();
+            if (window.initAnimations) window.initAnimations();
         }
 
         // Filter buttons

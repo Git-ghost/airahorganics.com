@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/vars.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 
     <!-- Icons & SEO -->
     <link rel="icon" type="image/jpeg" href="assets/images/transparentlogo.png">
@@ -289,6 +290,7 @@
     <!-- Scripts -->
     <script src="js/products.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
     <script>
         // Elements
         const shopGrid = document.getElementById('shop-grid');
@@ -337,9 +339,12 @@
                 return;
             }
 
-            filtered.forEach(product => {
+            filtered.forEach((product, index) => {
                 const card = document.createElement('div');
-                card.className = 'product-card';
+                card.className = 'product-card animate-on-scroll slide-up';
+                // Stagger delay based on index
+                card.style.transitionDelay = `${Math.min(index * 50, 500)}ms`;
+
                 if (sessionStorage.getItem('lastProductId') == product.id) {
                     card.classList.add('last-viewed');
                 }
@@ -372,7 +377,25 @@
                 shopGrid.appendChild(card);
             });
 
+            // Re-trigger observer for new elements
+            if (typeof observer !== 'undefined') {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            } else {
+                // Fallback if observer is not globally available yet (auto-init in js file handles DOMContentLoaded, but here we render dynamic content)
+                // We can rely on the fact that animations.js runs on DOMContentLoaded. 
+                // BUT renderProducts runs immediately. 
+                // So we should probably trigger it manually or wait. 
+                // Actually animations.js uses DOMContentLoaded. 
+                // If we render content AFTER that (or during), we need to tell it to observe.
+                // Let's rely on a global function or just re-run the logic if possible.
+                // Better: dispatch an event or expose the observer.
+                // For now, I'll update animations.js to expose a function or just make sure to add the classes.
+                // Wait, animations.js only runs once on load. 
+                // I need to update animations.js to export a function or attach it to window.
+            }
+
             lucide.createIcons();
+            if (window.initAnimations) window.initAnimations();
         }
 
         // Event Listeners

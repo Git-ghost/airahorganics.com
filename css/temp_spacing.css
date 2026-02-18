@@ -1,0 +1,10 @@
+/* Homepage Specific Spacing */
+#featured-products {
+    margin-top: 4rem;
+    /* Additional space from features bar */
+}
+
+#featured-products .product-grid {
+    gap: 3rem;
+    /* Larger gap between products on homepage */
+}

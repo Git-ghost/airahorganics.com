@@ -1,17 +1,28 @@
 /* Main Styles */
 
 /* Custom Scrollbar */
+/* Custom Scrollbar - Desktop (Original) */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-bg); 
+    background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-dark));
     border-radius: 5px;
+}
+
+/* Mobile Scrollbar - Standard Property Fallback */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-bg);
+    }
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -271,48 +282,66 @@
 /* Product Grid & Cards */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* Smaller cards */
+    gap: 1.5rem;
+    /* Tighter gap */
+    padding-bottom: 2rem;
 }
 
+/* Modern Product Card */
 .product-card {
     background: var(--color-white);
-    border-radius: 16px;
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    /* Refined, smaller radius */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    /* Subtle border for definition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    /* Always visible subtle shadow */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Lift Animation */
 .product-card:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    /* More pronounced lift */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow */
+    border-color: var(--color-primary);
+    /* #CBB700 Border highlight */
 }
 
 .product-image {
     position: relative;
-    /* Legacy didn't have gray background or aspect ratio constraints */
-    margin-bottom: 1rem;
-    display: block;
-    /* Align with legacy */
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Square for shorter card height */
+    /* Consistent vertical portrait */
+    overflow: hidden;
+    margin: 0;
+    background: #f8f8f8;
 }
 
 .product-image img {
     width: 100%;
-    /* Legacy style */
-    border-radius: 1%;
-    /* Legacy style */
-    height: auto;
+    height: 100%;
     object-fit: cover;
-    /* Ensure it fills nicely if container constrains it, otherwise auto */
-    transition: transform 0.5s ease;
+    border-radius: 0;
+    /* Edge to edge */
+    transition: transform 0.7s ease;
+    display: block;
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    /* Slow zoom */
 }
 
-/* Shine Effect for Premium Images */
+/* Shine Effect (Subtle) */
 .shine-effect {
     position: relative;
     overflow: hidden;
@@ -322,34 +351,39 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -75%;
+    left: -100%;
     z-index: 2;
     display: block;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     transform: skewX(-25deg);
     transition: left 0.7s;
     pointer-events: none;
 }
 
 .shine-effect:hover::before {
-    left: 125%;
+    left: 200%;
 }
 
 .add-to-cart-btn {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    width: 40px;
-    height: 40px;
+    background-color: #FFFFFF;
+    color: #1a1a1a;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 10;
+    display: flex;
+    /* Ensure center alignment */
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card:hover .add-to-cart-btn {
@@ -360,27 +394,44 @@
 .add-to-cart-btn:hover {
     background-color: var(--color-primary);
     color: var(--color-white);
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 0.75rem;
+    /* Reduced padding for shorter height */
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product-info h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #000000;
-    /* Black Product Names */
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: #1a1a1a;
+    letter-spacing: 0;
+    line-height: 1.2;
 }
 
 .product-info .price {
-    color: var(--color-primary);
-    /* Yellow Price */
-    font-weight: 700;
-    font-size: 1.1rem;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    font-size: 1.15rem;
+    font-family: var(--font-main);
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 0.5rem;
 }
 
 .rating {
     display: flex;
-    gap: 2px;
-    margin-bottom: 0.5rem;
+    gap: 3px;
+    margin-bottom: 0.75rem;
+    justify-content: center;
 }
 
 .star {
@@ -390,8 +441,8 @@
 }
 
 .star.filled {
-    color: #FBBF24;
-    /* Amber-400 */
+    color: #CBB700;
+    /* Match primary */
     fill: currentColor;
 }
 
@@ -1090,4 +1141,15 @@
     color: #555;
     line-height: 1.6;
     margin-bottom: 0.5rem;
+}
+
+/* Homepage Specific Spacing */
+#featured-products {
+    margin-top: 4rem;
+    /* Additional space from features bar */
+}
+
+#featured-products .product-grid {
+    gap: 3rem;
+    /* Larger gap between products on homepage */
 }

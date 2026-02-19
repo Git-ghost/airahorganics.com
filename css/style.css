@@ -890,6 +890,7 @@
 /* Fix for mobile text wrapping */
 @media (max-width: 768px) {
     .toast-container {
+        top: 6rem;
         width: 95%;
         left: 50%;
         transform: translateX(-50%);

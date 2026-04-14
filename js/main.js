@@ -129,7 +129,7 @@ function renderCartPage() {
                     <span style="font-weight: 500;">${escapeHtml(item.name)}</span>
                 </div>
             </td>
-            <td data-label="Çmimi">${item.price.toFixed(2)}€</td>
+            <td data-label="Çmimi">${item.price.toFixed(2)} L</td>
             <td data-label="Sasia">
                 <div class="qty-controls flex items-center gap-2">
                     <button onclick="updateQty(${item.id}, -1)">-</button>
@@ -137,7 +137,7 @@ function renderCartPage() {
                     <button onclick="updateQty(${item.id}, 1)">+</button>
                 </div>
             </td>
-            <td data-label="Totali">${itemTotal.toFixed(2)}€</td>
+            <td data-label="Totali">${itemTotal.toFixed(2)} L</td>
             <td>
                 <button onclick="removeFromCart(${item.id})" style="color: #666;"><i data-lucide="trash-2" style="width:16px;"></i></button>
             </td>
@@ -145,8 +145,8 @@ function renderCartPage() {
         tbody.appendChild(row);
     });
 
-    if (subtotalEl) subtotalEl.innerText = total.toFixed(2) + "€";
-    if (totalEl) totalEl.innerText = total.toFixed(2) + "€";
+    if (subtotalEl) subtotalEl.innerText = total.toFixed(2) + " L";
+    if (totalEl) totalEl.innerText = total.toFixed(2) + " L";
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -213,11 +213,11 @@ function copyCartToClipboard() {
     let total = 0;
 
     cart.forEach(item => {
-        message += `- ${item.name} x${item.qty} (${(item.price * item.qty).toFixed(2)}€)\n`;
+        message += `- ${item.name} x${item.qty} (${(item.price * item.qty).toFixed(2)} L)\n`;
         total += item.price * item.qty;
     });
 
-    message += `\nTotali: ${total.toFixed(2)}€\n`;
+    message += `\nTotali: ${total.toFixed(2)} L\n`;
     message += "\nJu lutem më tregoni si mund të kryej pagesën. Faleminderit!";
 
     // Copy to clipboard
@@ -273,36 +273,9 @@ function initGlobal() {
 
     // Initialize Mobile Menu
     initMobileMenu();
-
-    // Initialize Back Button
-    initBackButton();
 }
 
-function initBackButton() {
-    // Only add if not already present
-    if (document.querySelector('.floating-back-btn-container')) return;
 
-    // Don't show on index.html
-    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('\/');
-    if (isHomePage) return;
-
-    const container = document.createElement('div');
-    container.className = 'floating-back-btn-container';
-
-    const btn = document.createElement('button');
-    btn.className = 'floating-back-btn';
-    btn.setAttribute('aria-label', 'Shko mbrapa');
-    btn.innerHTML = '<i data-lucide="arrow-left"></i>';
-
-    btn.onclick = () => {
-        window.history.back();
-    };
-
-    container.appendChild(btn);
-    document.body.appendChild(container);
-
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-}
 
 function initMobileMenu() {
     // Prevent duplicate init

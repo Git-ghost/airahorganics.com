@@ -3,7 +3,7 @@ const products = [
     {
         id: 1,
         name: "Serum me Kolagjen Natyral",
-        price: 30.00,
+        price: 3000,
         size: "30ml",
         image: "assets/images/serummekolagjen.jpg",
         category: "face",
@@ -24,7 +24,7 @@ const products = [
     {
         id: 2,
         name: "Krem i bukurisë Antike Rigjenerues",
-        price: 30.00,
+        price: 3000,
         size: "30ml",
         image: "assets/images/kremibukuriseantike.jpg",
         category: "face",
@@ -45,7 +45,7 @@ const products = [
     {
         id: 3,
         name: "Krem Mbrojtës nga Dielli SPF 40-50",
-        price: 20.00,
+        price: 2000,
         size: "30ml",
         image: "assets/images/kremmbrojtesngadielli.jpg",
         category: "face",
@@ -69,7 +69,7 @@ const products = [
     {
         id: 4,
         name: "Serum me Acid Hialuronik & AHA",
-        price: 30.00,
+        price: 3000,
         size: "30ml",
         image: "assets/images/category4.jpg",
         category: "face",
@@ -91,7 +91,7 @@ const products = [
     {
         id: 5,
         name: "Krem Anti–Rrudhë me Acid Hialuronik",
-        price: 20.00,
+        price: 2000,
         size: "30ml",
         image: "assets/images/kremantirrudhemeacidhialuronik.jpg",
         category: "face",
@@ -114,7 +114,7 @@ const products = [
     {
         id: 6,
         name: "Krem Kundër Akneve me Tea Tree & Vaj Farash Qershie",
-        price: 15.00,
+        price: 1500,
         size: "30ml",
         image: "assets/images/kremkunderaknevemeteatreedheqershie.jpg",
         category: "face",
@@ -136,7 +136,7 @@ const products = [
     {
         id: 7,
         name: "Serum për Zonën e Syve me Ekstrakt Kafeje & Kastraveci",
-        price: 12.00,
+        price: 1200,
         size: "10ml",
         image: "assets/images/serumperzonenesyvemeekstraktkafeje.jpg",
         category: "face",
@@ -159,7 +159,7 @@ const products = [
     {
         id: 18,
         name: "Larës Shkumë me Acid Hialuronik",
-        price: 20.00,
+        price: 2000,
         size: "250ml",
         image: "assets/images/larësshkumëmeacidhialuronik.jpg",
         category: "wash",
@@ -180,7 +180,7 @@ const products = [
     {
         id: 19,
         name: "Sapun Natyral me Tea Tree – Kundër Akneve",
-        price: 7.00,
+        price: 700,
         size: "100gr",
         image: "assets/images/sapunnatyralmeteatree.jpg",
         category: "wash",
@@ -201,7 +201,7 @@ const products = [
     {
         id: 20,
         name: "Sapun Natyral me Mjaltë, Tërshërë & Turmeric",
-        price: 10.00,
+        price: 1000,
         size: "100gr",
         image: "assets/images/sapunnatyralmemjalttershere.jpg",
         category: "wash",
@@ -221,7 +221,7 @@ const products = [
     {
         id: 21,
         name: "Sapun Natyral me Glicerinë, Mjaltë, Turmeric & Lavandë",
-        price: 10.00,
+        price: 1000,
         size: "100gr",
         image: "assets/images/category21.jpg",
         category: "wash",
@@ -242,7 +242,7 @@ const products = [
     {
         id: 22,
         name: "Sapun Intim Natyral me Aromë Misk Tahara",
-        price: 20.00,
+        price: 2000,
         size: "100gr",
         image: "assets/images/category22.jpg",
         category: "wash",
@@ -263,7 +263,7 @@ const products = [
     {
         id: 31,
         name: "Maskë natyrale me argjile jeshile (green clay) dhe mjaltë",
-        price: 15.00,
+        price: 1500,
         size: "100gr",
         image: "assets/images/category31.jpg",
         category: "face",
@@ -283,7 +283,7 @@ const products = [
     {
         id: 32,
         name: "Maskë Zbardhuese & Ushqyese me Mjaltë dhe Bime Aziatike",
-        price: 20.00,
+        price: 2000,
         size: "100gr",
         image: "assets/images/category32.jpg",
         category: "face",
@@ -303,7 +303,7 @@ const products = [
     {
         id: 33,
         name: "Pudra Nila Natyrale – Pastrim & Zbardhje",
-        price: 20.00,
+        price: 2000,
         size: "100gr",
         image: "assets/images/category33.jpg",
         category: "face",
@@ -323,7 +323,7 @@ const products = [
     {
         id: 34,
         name: "Skrab Fytyre Natyral me Lavandë & Tërshërë",
-        price: 15.00,
+        price: 1500,
         size: "150ml",
         image: "assets/images/category34.jpg",
         category: "face",
@@ -344,7 +344,7 @@ const products = [
     {
         id: 37,
         name: "Lip Balm Natyral – Jasemin & Lavandë",
-        price: 4.00,
+        price: 400,
         size: "10ml",
         image: "assets/images/category29.jpg",
         category: "face",
@@ -364,7 +364,7 @@ const products = [
     {
         id: 38,
         name: "Serum Ushqyes me Vitaminat A, C & E",
-        price: 25.00,
+        price: 2500,
         size: "30ml",
         image: "assets/images/category38.jpg",
         category: "face",
@@ -386,7 +386,7 @@ const products = [
     {
         id: 8,
         name: "Shampo Natyrale me Rozmarinë & Hithër",
-        price: 28.00,
+        price: 2800,
         size: "350ml",
         image: "assets/images/shamponatyralemerozmarinedhehither.jpg",
         category: "hair",
@@ -406,7 +406,7 @@ const products = [
     {
         id: 9,
         name: "Shampo Qetësuese për Ekzemë & Psoriazë",
-        price: 30.00,
+        price: 3000,
         size: "500ml",
         image: "assets/images/shampoqetesueseperekzemedhepsoriaze.jpg",
         category: "hair",
@@ -426,7 +426,7 @@ const products = [
     {
         id: 10,
         name: "Shampo Premium Kundër Zbokthit – Tea Tree Oil",
-        price: 30.00,
+        price: 3000,
         size: "500ml",
         image: "assets/images/shampopremiumkunderzbokthit.jpg",
         category: "hair",
@@ -446,7 +446,7 @@ const products = [
     {
         id: 11,
         name: "Shampo me Argjilë për Flokë të Yndyrshëm",
-        price: 17.00,
+        price: 1700,
         size: "250ml",
         image: "assets/images/shampomeargjileperfloketeyndyrshem.jpg",
         category: "hair",
@@ -466,7 +466,7 @@ const products = [
     {
         id: 39,
         name: "Shampo me Argjilë për Flokë të Yndyrshëm",
-        price: 30.00,
+        price: 3000,
         size: "500ml",
         image: "assets/images/shampomeargjileperfloketeyndyrshem.jpg",
         category: "hair",
@@ -486,7 +486,7 @@ const products = [
     {
         id: 12,
         name: "Luxury Hair Oil – 100% Vajra Natyralë",
-        price: 35.00,
+        price: 3500,
         size: "100ml",
         image: "assets/images/luxuthairoil.jpg",
         category: "hair",
@@ -506,7 +506,7 @@ const products = [
     {
         id: 13,
         name: "Vaj Rigjenerues Premium – 20+ Vajra Bimore",
-        price: 20.00,
+        price: 2000,
         size: "100ml",
         image: "assets/images/vajrigjieneruespremiumperfloke.jpg",
         category: "hair",
@@ -526,7 +526,7 @@ const products = [
     {
         id: 14,
         name: "Seti Premium për Çdo Lloj Floku – Shampo + Maskë",
-        price: 32.00,
+        price: 3200,
         size: "Set",
         image: "assets/images/setipremiumpercdollojfloku.jpg",
         category: "hair",
@@ -548,7 +548,7 @@ const products = [
     {
         id: 23,
         name: "Balm Rigjenerues për Thembrat",
-        price: 20.00,
+        price: 2000,
         size: "50gr",
         image: "assets/images/category23.jpg",
         category: "body",
@@ -568,7 +568,7 @@ const products = [
     {
         id: 24,
         name: "Skrab Trupi me Lavandë, Tërshërë & Vajra",
-        price: 15.00,
+        price: 1500,
         size: "150gr",
         image: "assets/images/category24.jpg",
         category: "body",
@@ -589,7 +589,7 @@ const products = [
     {
         id: 25,
         name: "Skrab Natyral Kundër Celulitit",
-        price: 15.00,
+        price: 1500,
         size: "150gr",
         image: "assets/images/category25.jpg",
         category: "body",
@@ -609,7 +609,7 @@ const products = [
     {
         id: 26,
         name: "Vaj Kundër Celulitit",
-        price: 20.00,
+        price: 2000,
         size: "100ml",
         image: "assets/images/category26.jpg",
         category: "body",
@@ -629,7 +629,7 @@ const products = [
     {
         id: 27,
         name: "Vaj Natyral për Trupin",
-        price: 15.00,
+        price: 1500,
         size: "100ml",
         image: "assets/images/category27.jpg",
         category: "body",
@@ -649,7 +649,7 @@ const products = [
     {
         id: 28,
         name: "Serum Natyral për Qerpikët",
-        price: 10.00,
+        price: 1000,
         size: "10ml",
         image: "assets/images/category28.jpg",
         category: "body",
@@ -669,7 +669,7 @@ const products = [
     {
         id: 29,
         name: "Petal Touch – Krem Trupi Luksoz",
-        price: 30.00,
+        price: 3000,
         size: "250ml",
         image: "assets/images/petaltouch.jpg",
         category: "body",
@@ -689,7 +689,7 @@ const products = [
     {
         id: 30,
         name: "Krem Natyral për Gjirin",
-        price: 20.00,
+        price: 2000,
         size: "30gr",
         image: "assets/images/category30.jpg",
         category: "body",
@@ -709,7 +709,7 @@ const products = [
     {
         id: 36,
         name: "Deodorant Natyral Pa Alumin & Toksina",
-        price: 14.00,
+        price: 1400,
         size: "50ml",
         image: "assets/images/category36.jpg",
         category: "body",
@@ -731,7 +731,7 @@ const products = [
     {
         id: 15,
         name: "Set Kujdesi për Flokët e Fëmijëve – Shampo + Zbutës",
-        price: 32.00,
+        price: 3200,
         size: "Set",
         image: "assets/images/setkujdesiperfloketefemijeve.jpg",
         category: "kids",
@@ -751,7 +751,7 @@ const products = [
     {
         id: 16,
         name: "Balm Natyral për Bebe",
-        price: 20.00,
+        price: 2000,
         size: "50gr",
         image: "assets/images/balmnatyralperbebe.jpg",
         category: "kids",
@@ -771,7 +771,7 @@ const products = [
     {
         id: 17,
         name: "Vaj Natyral për Flokët e Fëmijëve",
-        price: 20.00,
+        price: 2000,
         size: "100ml",
         image: "assets/images/vajnatyralperfoloketefemijeve.jpg",
         category: "kids",
@@ -791,7 +791,7 @@ const products = [
     {
         id: 35,
         name: "Serum për Qerpikë & Vetulla me Vaj Kastori",
-        price: 10.00,
+        price: 1000,
         size: "10ml",
         image: "assets/images/category35.jpg",
         category: "face",

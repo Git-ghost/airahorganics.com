@@ -129,7 +129,7 @@ function renderCartPage() {
                     <span style="font-weight: 500;">${escapeHtml(item.name)}</span>
                 </div>
             </td>
-            <td data-label="Çmimi">${item.price.toFixed(2)} L</td>
+            <td data-label="Çmimi">${item.price} L</td>
             <td data-label="Sasia">
                 <div class="qty-controls flex items-center gap-2">
                     <button onclick="updateQty(${item.id}, -1)">-</button>
@@ -137,7 +137,7 @@ function renderCartPage() {
                     <button onclick="updateQty(${item.id}, 1)">+</button>
                 </div>
             </td>
-            <td data-label="Totali">${itemTotal.toFixed(2)} L</td>
+            <td data-label="Totali">${itemTotal} L</td>
             <td>
                 <button onclick="removeFromCart(${item.id})" style="color: #666;"><i data-lucide="trash-2" style="width:16px;"></i></button>
             </td>
@@ -145,8 +145,8 @@ function renderCartPage() {
         tbody.appendChild(row);
     });
 
-    if (subtotalEl) subtotalEl.innerText = total.toFixed(2) + " L";
-    if (totalEl) totalEl.innerText = total.toFixed(2) + " L";
+    if (subtotalEl) subtotalEl.innerText = total + " L";
+    if (totalEl) totalEl.innerText = total + " L";
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -213,11 +213,11 @@ function copyCartToClipboard() {
     let total = 0;
 
     cart.forEach(item => {
-        message += `- ${item.name} x${item.qty} (${(item.price * item.qty).toFixed(2)} L)\n`;
+        message += `- ${item.name} x${item.qty} (${(item.price * item.qty)} L)\n`;
         total += item.price * item.qty;
     });
 
-    message += `\nTotali: ${total.toFixed(2)} L\n`;
+    message += `\nTotali: ${total} L\n`;
     message += "\nJu lutem më tregoni si mund të kryej pagesën. Faleminderit!";
 
     // Copy to clipboard

@@ -49,7 +49,7 @@ function addToCart(productId) {
                 cart.push({
                     id: product.id,
                     name: product.name,
-                    price: product.price,
+                    price: parseInt(product.price, 10), // Always store as integer to prevent string coercion
                     image: product.image,
                     qty: 1
                 });
@@ -118,7 +118,10 @@ function renderCartPage() {
     let total = 0;
 
     cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
+        // Ensure price is a number (guards against stale string values in localStorage)
+        const price = parseInt(item.price, 10) || 0;
+        const qty = parseInt(item.qty, 10) || 1;
+        const itemTotal = price * qty;
         total += itemTotal;
 
         const row = document.createElement('tr');
@@ -129,11 +132,11 @@ function renderCartPage() {
                     <span style="font-weight: 500;">${escapeHtml(item.name)}</span>
                 </div>
             </td>
-            <td data-label="Çmimi">${item.price} L</td>
+            <td data-label="Çmimi">${price} L</td>
             <td data-label="Sasia">
                 <div class="qty-controls flex items-center gap-2">
                     <button onclick="updateQty(${item.id}, -1)">-</button>
-                    <span>${item.qty}</span>
+                    <span>${qty}</span>
                     <button onclick="updateQty(${item.id}, 1)">+</button>
                 </div>
             </td>
@@ -213,8 +216,11 @@ function copyCartToClipboard() {
     let total = 0;
 
     cart.forEach(item => {
-        message += `- ${item.name} x${item.qty} (${(item.price * item.qty)} L)\n`;
-        total += item.price * item.qty;
+        const price = parseInt(item.price, 10) || 0;
+        const qty = parseInt(item.qty, 10) || 1;
+        const itemTotal = price * qty;
+        message += `- ${item.name} x${qty} (${itemTotal} L)\n`;
+        total += itemTotal;
     });
 
     message += `\nTotali: ${total} L\n`;
